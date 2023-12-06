@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap");
+
+:root {
+  --main: #c5673b;
+  --light: #f2f5f2;
+  --dark: #3a3332;
+  --dark-accent: #a06e53;
+  --light-accent: #f09560;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: var(--dark);
+  list-style-type: none;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head-title {
+  font-family: "Pacifico", sans-serif;
+  color: var(--light);
+  font-size: 24px;
+  margin-left: 250px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 250px;
+}
+
+.search-container input[type="text"] {
+  border-radius: 20px;
+  height: 35px;
+  width: 250px;
+  padding: 0 20px;
+  color: var(--dark);
+}
+
+.search-container button {
+  height: 35px;
+  width: 80px;
+  border-radius: 20px;
+  color: var(--light);
+  background-color: var(--light-accent);
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: var(--dark-accent);
+}
+
+main {
+  max-width: 1024px;
+  width: 80vw;
+  margin: 50px auto;
+  padding: 16px;
+  min-width: 450px;
+}
+
+#btn-add-book {
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  color: var(--light-accent);
+  z-index: 1;
+}
+
+#btn-add-book:hover {
+  color: var(--dark-accent);
+}
+
+#add-icon {
+  font-size: 100px;
+  text-shadow: 2px 2px 2px var(--dark);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.modal-input {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #474e5da4;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--light-accent);
+  border-radius: 10px;
+  background-color: white;
+  width: 60%;
+  height: 350px;
+  margin: 60px auto;
+  position: relative;
+}
+
+.modal-input h2 {
+  text-align: center;
+  color: var(--main);
+  margin-top: 10px;
+}
+
+.modal-input form .input {
+  margin: 8px 0;
+}
+
+.modal-input form button {
+  background-color: var(--light-accent);
+  color: white;
+  border: 0;
+  font-size: 15px;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.modal-input form button:hover {
+  background-color: var(--dark-accent);
+}
+
+.modal-input form button span {
+  font-weight: bold;
+}
+
+.modal-input form .input input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.modal-input form .input label {
+  color: var(--main);
+  font-weight: bold;
+}
+
+.modal-input form .input-inline {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+.modal-input form .input-inline label {
+  color: var(--main);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.book-shelf {
+  margin: 15px;
+  border: 1px solid var(--light-accent);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.book-shelf h2 {
+  color: var(--main);
+  text-align: center;
+}
+
+.book-shelf .book-list {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.book-shelf .book-list h3,
+p {
+  margin: 8px;
+}
+
+.book-shelf .book-list h3 {
+  color: var(--main);
+}
+
+.book-shelf .book-list .book-item {
+  border: 2px solid var(--main);
+  width: 47%;
+  min-width: 300px;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.btn-read,
+.btn-delete,
+.btn-edit {
+  border-radius: 5px;
+  margin: 2px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.btn-read {
+  width: 110px;
+  height: 30px;
+  background-color: blue;
+}
+
+.btn-delete {
+  width: 70px;
+  min-height: 30px;
+  background-color: red;
+}
+
+.btn-read:hover {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+}
+
+.modal-bg-delete {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #474e5da4;
+  padding-top: 50px;
+}
+
+.container-modal-delete {
+  width: 450px;
+  height: 25%;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.btnModalBatal,
+.btnModalHapus {
+  width: 160px;
+  height: 30px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btnModalBatal {
+  background-color: #ccc;
+  opacity: 0.8;
+}
+
+.btnModalHapus {
+  background-color: red;
+  color: white;
+  opacity: 0.7;
+}
+
+.btnModalBatal:hover,
+.btnModalHapus:hover {
+  opacity: 1;
+}
+
+.modal-bg-edit {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: #474e5da4;
+}
+
+.container-modal-edit {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  width: 60%;
+  height: 350px;
+  margin: 60px auto;
+  position: relative;
+}
+
+.container-modal-edit h2 {
+  text-align: center;
+  color: var(--main);
+  margin-top: 10px;
+}
+
+.input-edit label {
+  color: var(--main);
+  font-weight: bold;
+}
+
+.input-edit input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.input-edit-inline {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+.input-edit-inline label {
+  color: var(--main);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.btn-edit {
+  background-color: orange;
+  height: 30px;
+  width: 50px;
+  opacity: 0.7;
+}
+
+.btn-edit:hover {
+  opacity: 1;
+}
+
+.btn-modal-edit {
+  background-color: var(--light-accent);
+  height: 35px;
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-modal-edit:hover {
+  background-color: var(--dark-accent);
+}
+
+article .action {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  header .search-container {
+    margin-right: 100px;
+  }
+
+  header .head-title {
+    margin-left: 100px;
+  }
+
+  #add-icon {
+    font-size: 90px;
+  }
+
+  .container-input {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    height: 120px;
+  }
+
+  header .search-container {
+    margin-right: 0;
+  }
+
+  header .head-title {
+    margin-left: 0;
+  }
+
+  main {
+    margin-top: 100px;
+  }
+
+  #add-icon {
+    font-size: 80px;
+  }
+}
